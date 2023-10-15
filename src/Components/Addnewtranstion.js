@@ -20,6 +20,11 @@ export default function Addnewtranstion() {
 
   const onsubmit = (e) => {
     e.preventDefault();
+    // Validation check
+    if (text.trim() === "" || amount.trim() === "") {
+      alert("Please enter a valid text and amount");
+      return;
+    }
 
     const newTransaction = {
       id: Math.floor(Math.random() * 100000000),
@@ -28,16 +33,10 @@ export default function Addnewtranstion() {
     };
 
     addTransactions(newTransaction);
-
     setText("");
     setAmount("");
-    
-//Clear form
-
-
-
-
   };
+
 
   return (
     <>
@@ -64,7 +63,9 @@ export default function Addnewtranstion() {
             onChange={onChangeAmount}
           ></input>
         </div>
-        <button className="btn">Add Transtion</button>
+        <button className="btn" >
+          Add Transtion
+        </button>
       </form>
     </>
   );
